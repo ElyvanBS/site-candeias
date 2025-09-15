@@ -1,0 +1,1280 @@
+/*Formatacões*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--fonte-principal);
+    font-weight: var(--font-bold);
+}
+
+h1 {
+    font-weight: var(--font-bold-titulo);
+    font-size: var(--fs-titulo);
+    text-transform: uppercase;
+}
+
+p {
+    font-family: var(--fonte-texto);
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+.link-active {
+    color: var(--cor-primaria) !important;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+
+
+/*Reutilizaveis*/
+
+section {
+    padding-block: 100px 100px;
+}
+
+section:last-child {
+    padding-block: 4rem 4rem;
+}
+
+/*Button voltar ao topo*/
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--cor-fundo);
+}
+
+/* Ícone de seta para cima usando CSS puro */
+.back-to-top::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-left: 3px solid #fff;
+    border-top: 3px solid #fff;
+    transform: rotate(45deg);
+    margin-top: 4px;
+}
+
+/*Fim button voltar ao topo*/
+/*Barra lateral redes sociais*/
+
+.social-sidebar {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 2;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon i {
+    font-size: var(--fs-subtitulo);
+    z-index: 1;
+}
+
+
+.social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-label {
+  position: absolute;
+  left: 50px;
+  background-color: var(--cor-secundaria);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+/* Mostrar o texto ao passar o mouse */
+.social-icon:hover .social-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.facebook {
+    background-color: #1877F2;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.spotify {
+    background-color: #1DB954;
+}
+
+.youtube {
+    background: linear-gradient(45deg, #FF0000, #CC0000);
+}
+
+.youtube-music {
+    background: linear-gradient(45deg, #FF0000, #CC0000);
+}
+
+/*Fim da barra lateral*/
+
+
+/*Container*/
+.container-width {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1300px) {
+    .container-width {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .container-width {
+        max-width: 900px;
+    }
+}
+
+/*Fim do container*/
+
+/*Header*/
+header {
+    width: 100%;
+    height: 80px;
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: sticky;
+    z-index: 999;
+    backdrop-filter: blur(2px);
+    background-color: #212121 !important;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    padding: 0 20px;
+
+
+
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: var(--fs-pequeno);
+    color: var(--cor-fundo);
+    white-space: nowrap;
+}
+
+.dropdown div i {
+    color: var(--cor-texto);
+    font-size: var(--fs-normal);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a.link-active {
+    color: var(--cor-primaria) !important;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--cor-secundaria);
+    opacity: 100;
+}
+
+
+.logo img {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.nav-list {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav-list li {
+    position: relative;
+}
+
+.nav-list a {
+    text-decoration: none;
+    font-size: var(--fs-pequeno);
+    text-transform: uppercase;
+    padding-block: 30px 0;
+}
+
+.nav-list a:hover {
+    color: var(--cor-texto);
+    opacity: 80%;
+}
+
+
+/*Menu hamburger*/
+.hamburger {
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #fff;
+    cursor: pointer;
+}
+
+.hamburger::after,
+.hamburger::before {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin-top: 5px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/*Fim do hamburger*/
+
+
+
+/*Carrosel*/
+
+.carousel {
+    margin-top: 120px;
+    margin-bottom: 50px;
+}
+
+/*button next e prev*/
+.data-carousel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1;
+}
+
+
+.data-carousel .carousel-control-prev,
+.data-carousel .carousel-control-next {
+    position: static;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.data-carousel .carousel-control-prev,
+.data-carousel .carousel-control-next {
+    opacity: 1 !important;
+    /* Remove a transparência padrão do Bootstrap */
+}
+
+.carousel-caption a {
+    font-size: var(--fs-titulo);
+    padding-right: 10px;
+    text-shadow: 1px 1px 2px #333;
+}
+
+.carousel-caption i {
+    font-size: var(--fs-normal);
+    text-shadow: 1px 1px 2px #333;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.carousel-caption i:hover {
+    padding-left: 5px;
+}
+
+/* Telas médias */
+@media (max-width: 1024px) {
+    .data-carousel {
+        right: 100px;
+    }
+}
+
+
+
+.carousel .active {
+    background-color: var(--cor-secundaria);
+    border-radius: 5px;
+}
+
+.container-carousel {
+    width: 80%;
+    margin: 4rem auto 4rem;
+}
+
+.carousel-inner img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+.seta-slider {
+    color: var(--cor-texto);
+    font-size: var(--fs-subtitulo);
+    font-weight: var(--font-bold);
+    background-color: var(--cor-secundaria);
+
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.seta-slider i {
+    opacity: 100;
+}
+
+/*Fim do carrosel*/
+
+/*Numero do candeias*/
+
+.stats-container {
+    width: 100%;
+    background: var(--cor-degrade);
+    padding: 20px 20px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    text-align: center;
+}
+
+.stats-container div {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 50px;
+    width: 150px;
+    text-align: center;
+}
+
+.stat-icon {
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.stat-icon i {
+    font-size: var(--fs-titulo);
+    color: var(--cor-secundaria);
+}
+
+.stat-number {
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-text {
+    font-size: var(--fs-subtitulo);
+    font-weight: var(--font-bold-subtitulo);
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+
+}
+
+.counter {
+    font-size: var(--fs-subtitulo);
+    font-weight: var(--font-bold-subtitulo);
+    text-transform: uppercase;
+}
+
+/*Seção História do grupo e Filosofia do Mestre Suíno*/
+
+.title-about,
+.title-location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title-about h1,
+.title-location h1 {
+    font-size: var(--fs-titulo);
+    background-image: var(--cor-degrade);
+    font-weight: var(--font-bold-titulo);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.title-about hr,
+.title-location hr {
+    background-color: var(--cor-primaria);
+    opacity: 100;
+    width: 100px;
+    height: 5px;
+    border: none;
+}
+
+.content-about {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+
+
+}
+
+.image-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-about img {
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+.image-about,
+.data-about,
+.image-philosophy .data-philosophy {
+    padding: 20px 20px;
+}
+
+.subtitle-about h2,
+.subtitle-location h2 {
+    font-size: var(--fs-subtitulo);
+    color: var(--cor-secundaria);
+    font-weight: var(--font-bold);
+}
+
+.data-about {
+    padding: 5px 5px;
+
+}
+
+.text-about,
+.text-location {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.text-about p,
+.text-location p {
+    font-size: var(--fs-normal);
+    color: var(--cor-fundo);
+    text-align: left;
+}
+
+.button-about {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+
+    padding: 10px 40px;
+    font-size: var(--fs-button);
+    text-transform: uppercase;
+    border-radius: 5px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .2s;
+}
+
+.button-about:hover {
+    background-color: var(--cor-secundaria);
+    color: #fff;
+}
+
+/*Fim Seção História do grupo e Filosofia do Mestre Suíno*/
+
+/*Seção Filosofia do Mestre suíno*/
+.content-philosophy {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.image-philosophy {
+    position: relative;
+    max-width: 500px;
+}
+
+.image-philosophy::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.image-philosophy img {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.title-philosophy h1 {
+    color: var(--cor-fundo);
+    font-size: var(--fs-titulo);
+    font-weight: var(--font-bold);
+    font-style: italic;
+}
+
+.data-philosophy {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    position: relative;
+    z-index: 3;
+}
+
+.author-philosophy {
+    align-self: flex-end;
+}
+
+.author-philosophy h2 {
+    color: var(--cor-secundaria);
+    font-size: var(--fs-subtitulo);
+    text-transform: uppercase;
+    font-weight: var(--font-bold-subtitulo);
+}
+
+/*Fim Seção Filosofia do Mestre suíno*/
+
+/*Seção Onde estamos*/
+.data-location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 10px 0;
+}
+
+.text-location {
+    max-width: 800px;
+}
+
+.text-location p {
+    text-align: center;
+}
+
+.mapa-nucleos {
+    position: relative;
+    width: 100%;
+    margin: 50px 0;
+}
+
+.mapa-nucleos span {
+    display: block;
+    background-image: url('/assets/images/nucleos/nucleos.png');
+    width: 100%;
+    height: 911px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+}
+
+.mapa-nucleos span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;
+}
+
+.mapa-nucleos span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0px);
+}
+
+.mapa-nucleos span .button-about {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0;
+}
+
+.mapa-nucleos:hover span::before {
+    opacity: 0.8;
+    transition: opacity 0.8s ease;
+}
+
+.mapa-nucleos:hover span .button-about {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.mapa-nucleos:hover span::after {
+    backdrop-filter: blur(2px);
+    transition: backdrop-filter 0.3s ease;
+}
+
+/* Centraliza a logo no meio do mapa */
+.titie-mapa-nucleos {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    /* Para não bloquear clique no mapa */
+}
+
+.titie-mapa-nucleos img {
+    width: 200px;
+    height: auto;
+}
+
+/*Fim seção onde estamos*/
+
+/*Footer*/
+.footer {
+    background-color: #222;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Logo section */
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    font-size: var(--fs-pequeno);
+    font-family: var(--fonte-principal);
+    line-height: 1.4;
+    max-width: 200px;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+
+/* Footer sections */
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: #FFCC00;
+    font-size: var(--fs-normal);
+    margin-bottom: 15px;
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+}
+
+.footer-links {
+    list-style: none;
+
+    padding: 0;
+}
+
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: var(--fs-pequeno);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #FFCC00;
+}
+
+/* Contact info */
+.contact-info {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+
+    font-size: var(--fs-pequeno);
+    font-weight: 500;
+    font-family: var(--fonte-principal);
+
+    word-break: break-all;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--cor-primaria);
+    min-width: 20px;
+    font-size: var(--fs-pequeno);
+}
+
+/* Bottom yellow bar */
+.footer-bottom {
+    background-color: var(--cor-primaria);
+    padding: 15px 0;
+    text-align: center;
+    font-size: var(--fs-pequeno);
+    color: var(--cor-fundo);
+    width: 100%;
+}
+
+.footer-bottom p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    color: var(--cor-fundo);
+    font-weight: 500;
+    font-family: var(--fonte-principal);
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/*Fim footer*/
+
+/*Responsividade*/
+/*Tela 1440px (desktop)*/
+@media screen and (max-width: 1440px) {
+    .data-carousel {
+        right: 100px;
+    }
+}
+
+
+/*Tela 1024px (desktop)*/
+@media screen and (max-width: 1024px) {
+
+    .container-width {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .data-carousel {
+        right: 60px;
+        gap: 40px;
+
+    }
+
+    .stats-container div {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+        width: 100px;
+    }
+
+    .data-carousel .carousel-control-prev,
+    .data-carousel .carousel-control-next {
+        width: 16px;
+        height: 16px;
+
+    }
+
+    .image-about img {
+        width: 400px;
+    }
+
+    .text-about p {
+        text-align: justify;
+    }
+}
+
+/*Tela tablet (768px)*/
+@media screen and (max-width: 768px) {
+
+    .stats-container div {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+        margin: 10px 10px;
+    }
+
+    .carousel-inner img {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .logo img {
+        width: 80px;
+        height: 80px;
+
+        position: relative;
+        top: 0;
+    }
+
+    section {
+        padding-block: 50px 50px;
+    }
+
+    .container-width {
+        max-width: 700px;
+    }
+
+    .container-carousel {
+        width: 80%;
+    }
+
+
+    .hamburger {
+        display: block;
+        z-index: 100;
+        position: relative;
+    }
+
+    .hamburger::after,
+    .hamburger::before {
+        content: " ";
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #fff;
+        margin-top: 5px;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--cor-fundo);
+        clip-path: circle(100px at 90% -15%);
+        transition: 1s ease-out;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+
+        pointer-events: none;
+    }
+
+    .nav-list a {
+        font-size: var(--fs-pequeno);
+        opacity: 0;
+
+    }
+
+    .nav.active .nav-list {
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+
+    .nav.active .nav-list a {
+        opacity: 1;
+    }
+
+    .nav.active .hamburger {
+        position: fixed;
+
+        border-top-color: transparent;
+    }
+
+    .nav.active .hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    .nav.active .hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    .dropdown-menu {
+        display: block;
+        position: static;
+        margin-top: 10px;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        gap: 30px;
+    }
+
+
+    .dropdown-menu a {
+        color: #fff !important;
+    }
+
+    .dropdown {
+        text-align: center;
+
+    }
+
+    .data-carousel {
+        right: 30px;
+        gap: 30px;
+    }
+
+
+    .content-about {
+        flex-direction: column;
+    }
+
+    .content-philosophy {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .data-philosophy {
+        margin-top: 30px;
+    }
+
+
+
+    .title-philosophy {
+        text-align: center;
+    }
+
+    .author-philosophy {
+        align-self: center;
+    }
+
+    .mapa-nucleos iframe {
+        height: 300px;
+    }
+
+    .footer-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+
+
+}
+
+@media screen and (max-width: 716px) {
+    .container-width {
+        width: 650px;
+    }
+}
+
+
+@media screen and (max-width: 662px) {
+    .container-width {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .container-width {
+        width: 580px;
+    }
+
+    .image-about img,
+    .image-philosophy img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .container-width {
+        width: 500px;
+    }
+
+    .stats-container div {
+        grid-template-columns: repeat(2, 1fr);
+
+        justify-items: center;
+    }
+}
+
+
+@media screen and (max-width: 515px) {
+
+    .stats-container div {
+        grid-template-columns: repeat(2, 1fr);
+
+        justify-items: center;
+    }
+
+    .data-carousel {
+        display: none;
+    }
+
+    .container-width {
+        width: 450px;
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-bottom p {
+        width: 400px;
+    }
+
+
+}
+
+@media screen and (max-width: 460px) {
+    .container-width {
+        width: 410px;
+    }
+}
+
+/*Tela mobile (425px*/
+@media screen and (max-width: 426px) {
+    .container-width {
+        max-width: 350px;
+    }
+
+
+    .logo img {
+        width: 60px;
+        height: 60px;
+
+        position: relative;
+        top: 0;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .carousel-inner img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .container-carousel {
+        margin: 2rem auto 2rem;
+    }
+
+
+    .image-about img,
+    .image-philosophy img {
+        width: 300px;
+    }
+
+    .data-about h2 {
+        text-align: center;
+    }
+
+    .data-location p {
+        text-align: justify;
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-bottom p {
+        width: 300px;
+    }
+
+    .social-sidebar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container-width {
+        width: 300px;
+    }
+}
