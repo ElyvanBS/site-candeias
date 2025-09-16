@@ -1,0 +1,12 @@
+<div class="social-sidebar" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+  <a *ngFor="let link of socialLinks"
+     [href]="link.url"
+     target="_blank"
+     class="social-icon"
+     [ngClass]="link.iconClass"
+     [style.backgroundColor]="link.bgColor || 'transparent'">
+     
+    <i [class]="link.iconClass"></i>
+    <span class="social-label">{{ link.label }}</span>
+  </a>
+</div>

@@ -1,0 +1,100 @@
+<header class="header">
+  <nav class="nav container-width">
+    <a href="index.html" class="logo">
+      <img src="\images\logo\logo.png" alt="">
+    </a>
+    <button class="hamburger"></button>
+    <ul class="nav-list" data-aos="fade-up" data-aos-delay="300">
+      <li><a href="#" class="link-active">Início</a></li>
+      <li><a href="pages/historia-do-grupo/index.html">Nossa história</a></li>
+      <li><a href="pages/nucleos/index.html">Núcleos</a></li>
+      <li><a href="pages/eventos/index.html">Eventos</a></li>
+
+      <!-- Dropdown Grupo Candeias -->
+      <li class="dropdown">
+        <div class="">
+          <a href="#">Grupo Candeias</a>
+          <i class="ri-arrow-down-s-fill"></i>
+        </div>
+
+        <ul class="dropdown-menu">
+          <li><a href="pages/conselho-de-mestres/index.html">Conselho de Mestres</a></li>
+          <li><a href="pages/artes/index.html">Artes Oficiais</a></li>
+          <li><a href="pages/galeria/index.html">Galeria de Fotos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+<app-slider></app-slider>
+
+<app-social-sidebar [socialLinks]="[
+  { url: 'https://instagram.com', iconClass: 'ri-instagram-line', label: 'Instagram', bgColor: '#E1306C' },
+  { url: 'https://youtube.com', iconClass: 'ri-youtube-line', label: 'YouTube', bgColor: '#FF0000' },
+  { url: 'https://spotify.com', iconClass: 'ri-spotify-line', label: 'Spotify', bgColor: '#1DB954' },
+  { url: 'https://music.youtube.com', iconClass: 'ri-music-fill', label: 'YouTube Music', bgColor: '#FF0000' }
+]"></app-social-sidebar>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="\images\logo\logo.png" loading="lazy" alt="Logo Grupo Candeias">
+      <p>Tradição, cultura e disciplina através da arte da capoeira.</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/candeiascapoeira?igsh=MWU0dGUwbTk5ZTVpcg==" class="social-icon instagram"
+          target="_blank"><i class="ri-instagram-line"></i>
+
+        </a>
+        <a href="https://youtube.com/@tvcandeiascapoeira?si=mwPG56hXnOBOdYR_" class="social-icon youtube"
+          target="_blank"><i class="ri-youtube-line"></i>
+
+        </a>
+        <a href="https://open.spotify.com/intl-pt/artist/6e1PWwMRTJV32uYOJiLWjg?si=W3lxjywXQB2WylMaHVDR7g"
+          class="social-icon spotify" target="_blank">
+          <i class="ri-spotify-line"></i>
+
+        </a>
+        <a href="https://music.youtube.com/channel/UC2KNsKp3u7XMrsizZiTQKyA?si=FwpVhd4lpNEuNNJp"
+          class="social-icon youtube-music" target="_blank">
+          <i class="ri-music-fill"></i>
+
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Links Rápidos</h3>
+      <ul class="footer-links">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Nossa História</a></li>
+        <li><a href="#">Núcleos</a></li>
+        <li><a href="#">Eventos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Grupo Candeias</h3>
+      <ul class="footer-links">
+        <li><a href="#">Conselho de Mestres</a></li>
+        <li><a href="#">Artes Oficiais do Grupo</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contato</h3>
+      <ul class="contact-info footer-links">
+        <li><i class="ri-mail-line"></i> grupocandeiasdecapoeira@gmail.com</li>
+        <li><i class="ri-map-pin-line"></i><a target="_blank"
+            href="https://maps.app.goo.gl/JmZDb6WYnH6SGiDh6">Associação Candeias de Capoeira</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Grupo de Capoeira Candeias. Todos os direitos reservados.</p>
+    <p>Termos de condições de privacidade</p>
+  </div>
+</footer>

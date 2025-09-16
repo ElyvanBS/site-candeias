@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /* 🎨 Cores */
+    --cor-primaria: #FBC02D;
+    --cor-primaria-hover: rgb(237, 181, 38);
+    --cor-secundaria: #B71C1C;
+    --cor-details: #0D47A1;
+    --cor-degrade: linear-gradient(90deg, #B71C1C 0%, #FBC02D 100%);
+    --cor-texto: #ffffff;
+    --cor-fundo: #212121;
+  
+    /* 🅰️ Fontes */        
+    --fonte-principal: 'Montserrat', sans-serif;
+    --font-texto: 'Roboto', sans-serif;
+  
+    /* 🔠 Tamanhos de fonte */
+      --fs-button: 0.800rem;
+      --fs-pequeno: 1rem;      /* 16px */
+      --fs-normal: 1.125rem;   /* 18px */
+      --fs-subtitulo: 1.5rem;     /* 24px */
+      --fs-titulo: 2rem;     /* 32px */
+      --fs-big: 2.3rem;     /* 35px */
+
+      /*Bold das fontes*/
+      --font-bold-titulo: 900;
+      --font-bold-subtitulo: 800;
+      --font-bold: 700;
+      --font-bold-texto: normal;
+      --font-bold-button: 800;
+
+  }
+  
+  /* 🌐 Responsividade: Desktop (largura menor que 768px) */
+  @media (max-width: 800px) {
+    :root {
+
+        --fs-pequeno: 0.875rem;   /* 14px */
+        --fs-normal: 1rem;        /* 16px */
+        --fs-subtitulo: 1.25rem;     /* 20px */
+        --fs-titulo: 1.5rem;        /* 24px */
+     
+    }
+  }
+  
